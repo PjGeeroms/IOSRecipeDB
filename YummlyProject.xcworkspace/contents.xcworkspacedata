@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:/Users/Pieter-Jan/Library/Mobile Documents/com~apple~CloudDocs/HoGent/2016-2017/IOS/YummlyProject/YummlyProject.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Pods/Pods.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:YummlyProject.xcodeproj">
+   </FileRef>
+</Workspace>

@@ -1,14 +1,19 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D12b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Launch Screen Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LaunchScreenController" customModule="YummlyProject" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +21,719 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xhA-M1-9xL" customClass="LaunchScreenView" customModule="YummlyProject" customModuleProvider="target">
+                                <rect key="frame" x="62.5" y="208.5" width="250" height="250"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RECIPES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kxx-E1-MnK">
+                                        <rect key="frame" x="66" y="109" width="118" height="33"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="28"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="my" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZMz-P3-F3s">
+                                        <rect key="frame" x="106" y="75" width="38" height="34"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.2627450980392157" green="0.2627450980392157" blue="0.2627450980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="3Zw-Uu-Hza"/>
+                                    <constraint firstItem="kxx-E1-MnK" firstAttribute="top" secondItem="ZMz-P3-F3s" secondAttribute="bottom" id="ZWV-o2-2Zh"/>
+                                    <constraint firstItem="ZMz-P3-F3s" firstAttribute="centerX" secondItem="xhA-M1-9xL" secondAttribute="centerX" id="g4B-1Y-ek8"/>
+                                    <constraint firstAttribute="width" constant="250" id="hRC-mb-ZUd"/>
+                                    <constraint firstItem="kxx-E1-MnK" firstAttribute="centerY" secondItem="xhA-M1-9xL" secondAttribute="centerY" id="l6X-Ap-3qg"/>
+                                    <constraint firstItem="kxx-E1-MnK" firstAttribute="centerX" secondItem="xhA-M1-9xL" secondAttribute="centerX" id="mZE-Od-xtv"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.2627450980392157" green="0.2627450980392157" blue="0.2627450980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="xhA-M1-9xL" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Wz6-zr-DKe"/>
+                            <constraint firstItem="xhA-M1-9xL" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="j7t-1F-1xP"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <segue destination="3bv-MF-4Z6" kind="show" identifier="loginScreen" id="ux5-5n-MeV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-985" y="74"/>
+        </scene>
+        <!--Login View Controller-->
+        <scene sceneID="4KT-E2-NJr">
+            <objects>
+                <viewController id="3bv-MF-4Z6" customClass="LoginViewController" customModule="YummlyProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="WQh-pg-Vnq"/>
+                        <viewControllerLayoutGuide type="bottom" id="JdL-SR-suZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qva-xI-3C1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="q7A-q3-k5S">
+                                <rect key="frame" x="48" y="240.5" width="279" height="187"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="aBl-JS-wnj">
+                                        <rect key="frame" x="0.0" y="0.0" width="279" height="105"/>
+                                        <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="ios@recipedb.com" borderStyle="roundedRect" placeholder="email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j6f-Bg-zhT">
+                                                <rect key="frame" x="0.0" y="0.0" width="279" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="FiN-x3-ePk"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" keyboardAppearance="alert" returnKeyType="done"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="3bv-MF-4Z6" id="n6K-GP-uFS"/>
+                                                </connections>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="iosaccount" borderStyle="roundedRect" placeholder="password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oOb-aa-tve">
+                                                <rect key="frame" x="0.0" y="55" width="279" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="hDY-as-s95"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" keyboardAppearance="alert" returnKeyType="done" secureTextEntry="YES"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="3bv-MF-4Z6" id="MU0-zS-bUX"/>
+                                                </connections>
+                                            </textField>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="j6f-Bg-zhT" firstAttribute="width" secondItem="aBl-JS-wnj" secondAttribute="width" id="HSX-a5-tSA"/>
+                                            <constraint firstItem="oOb-aa-tve" firstAttribute="width" secondItem="j6f-Bg-zhT" secondAttribute="width" id="wOQ-me-V3V"/>
+                                        </constraints>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O02-Zs-ecp">
+                                        <rect key="frame" x="0.0" y="115" width="279" height="22"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
+                                        <color key="textColor" red="0.81176470588235294" green="0.0" blue="0.058823529411764705" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5IW-6L-SCQ" customClass="RecipeOverviewButton" customModule="YummlyProject" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="147" width="279" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="XD5-KE-SyL"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                        <state key="normal" title="Login">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="login" destination="3bv-MF-4Z6" eventType="touchUpInside" id="CDG-cV-ZjS"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RecipeDB" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OPF-V9-vd6">
+                                <rect key="frame" x="115" y="164.5" width="146" height="44"/>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="32"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="q7A-q3-k5S" secondAttribute="trailing" constant="32" id="8gn-wy-GQY"/>
+                            <constraint firstItem="OPF-V9-vd6" firstAttribute="centerX" secondItem="qva-xI-3C1" secondAttribute="centerX" id="C5y-Zj-H4c"/>
+                            <constraint firstItem="q7A-q3-k5S" firstAttribute="centerX" secondItem="qva-xI-3C1" secondAttribute="centerX" id="N2O-5l-BN2"/>
+                            <constraint firstItem="q7A-q3-k5S" firstAttribute="leading" secondItem="qva-xI-3C1" secondAttribute="leadingMargin" constant="32" id="dl3-aU-EEm"/>
+                            <constraint firstItem="q7A-q3-k5S" firstAttribute="centerY" secondItem="qva-xI-3C1" secondAttribute="centerY" id="kgk-qg-xq1"/>
+                            <constraint firstItem="q7A-q3-k5S" firstAttribute="top" secondItem="OPF-V9-vd6" secondAttribute="bottom" constant="32" id="ygH-5h-xcp"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="email" destination="j6f-Bg-zhT" id="LJc-9g-ztb"/>
+                        <outlet property="error" destination="O02-Zs-ecp" id="oEC-Hl-GHy"/>
+                        <outlet property="password" destination="oOb-aa-tve" id="CUg-RM-fsR"/>
+                        <segue destination="Bek-cZ-QeO" kind="show" identifier="startScreen" id="17Q-7y-Olf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WVw-yr-v91" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-31" y="73"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="0NQ-BV-8k1">
+            <objects>
+                <navigationController id="Bek-cZ-QeO" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="JlI-h2-H3K">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="mox-pe-VGT">
+                        <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="RqO-bn-8dM" kind="relationship" relationship="rootViewController" id="hyI-w8-bPX"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VkD-EH-RWe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="954" y="137"/>
+        </scene>
+        <!--Add Recipe View Controller-->
+        <scene sceneID="I2A-6T-SKG">
+            <objects>
+                <tableViewController id="qET-Cv-iXf" customClass="AddRecipeViewController" customModule="YummlyProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="qNU-k3-c46">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.13333333333333333" green="0.13333333333333333" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="imageCell" rowHeight="250" id="ysX-Nx-qGy" customClass="RecipeTableViewImageCell" customModule="YummlyProject" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="56" width="375" height="250"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ysX-Nx-qGy" id="hTd-FA-XRT">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="249"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ijF-8K-iW7">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="249.5"/>
+                                            <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="ijF-8K-iW7" firstAttribute="height" secondItem="hTd-FA-XRT" secondAttribute="height" id="aVC-jP-IkG"/>
+                                        <constraint firstItem="ijF-8K-iW7" firstAttribute="centerX" secondItem="hTd-FA-XRT" secondAttribute="centerX" id="iZ6-i8-b9V"/>
+                                        <constraint firstItem="ijF-8K-iW7" firstAttribute="centerY" secondItem="hTd-FA-XRT" secondAttribute="centerY" id="lPw-5l-Sgr"/>
+                                        <constraint firstItem="ijF-8K-iW7" firstAttribute="width" secondItem="hTd-FA-XRT" secondAttribute="width" id="nNA-0I-G8P"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="recipeImage" destination="ijF-8K-iW7" id="lL2-eU-nAB"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="inputCell" id="BE1-Fs-Haq" customClass="RecipeInputCell" customModule="YummlyProject" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="306" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BE1-Fs-Haq" id="AOv-l7-Aux">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="recipeName" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Recipe name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kvw-WO-oDk">
+                                            <rect key="frame" x="16" y="-1" width="343" height="44"/>
+                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                            <connections>
+                                                <outlet property="delegate" destination="qET-Cv-iXf" id="uoc-fk-2CP"/>
+                                            </connections>
+                                        </textField>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="kvw-WO-oDk" firstAttribute="leading" secondItem="AOv-l7-Aux" secondAttribute="leadingMargin" constant="8" id="76l-vj-TGz"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="kvw-WO-oDk" secondAttribute="trailing" constant="8" id="AmC-68-4Vy"/>
+                                        <constraint firstItem="kvw-WO-oDk" firstAttribute="centerX" secondItem="AOv-l7-Aux" secondAttribute="centerX" id="Mg1-cJ-CXl"/>
+                                        <constraint firstItem="kvw-WO-oDk" firstAttribute="height" secondItem="AOv-l7-Aux" secondAttribute="height" id="QQH-VW-g3J"/>
+                                        <constraint firstItem="kvw-WO-oDk" firstAttribute="centerY" secondItem="AOv-l7-Aux" secondAttribute="centerY" id="lqB-b0-jfp"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="inputField" destination="kvw-WO-oDk" id="M70-n5-BaW"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="imageInputCell" id="odo-in-8uw" customClass="RecipeImageInputCell" customModule="YummlyProject" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="350" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="odo-in-8uw" id="lRO-KG-fPD">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="imageInput" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Recipe image url" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rcz-az-70N">
+                                            <rect key="frame" x="16" y="-1" width="343" height="44"/>
+                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                            <connections>
+                                                <outlet property="delegate" destination="qET-Cv-iXf" id="90N-N0-hWV"/>
+                                            </connections>
+                                        </textField>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Rcz-az-70N" secondAttribute="trailing" constant="8" id="8EX-mb-GOd"/>
+                                        <constraint firstItem="Rcz-az-70N" firstAttribute="height" secondItem="lRO-KG-fPD" secondAttribute="height" id="FVh-1G-Alv"/>
+                                        <constraint firstItem="Rcz-az-70N" firstAttribute="centerX" secondItem="lRO-KG-fPD" secondAttribute="centerX" id="PLS-ya-ywX"/>
+                                        <constraint firstItem="Rcz-az-70N" firstAttribute="leading" secondItem="lRO-KG-fPD" secondAttribute="leadingMargin" constant="8" id="Pmi-i3-5vh"/>
+                                        <constraint firstItem="Rcz-az-70N" firstAttribute="centerY" secondItem="lRO-KG-fPD" secondAttribute="centerY" id="soO-S9-pjJ"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="inputField" destination="Rcz-az-70N" id="1VD-cL-9Ic"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="descriptionCell" rowHeight="120" id="i1G-h8-feT" customClass="RecipeDescriptionCell" customModule="YummlyProject" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="394" width="375" height="120"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="i1G-h8-feT" id="3MB-g6-nYa">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="119"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Description" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="r2d-WE-kFR">
+                                            <rect key="frame" x="10" y="0.0" width="357" height="119.5"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="textColor" red="0.7803921568627451" green="0.7803921568627451" blue="0.80392156862745101" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="alert" returnKeyType="continue" enablesReturnKeyAutomatically="YES"/>
+                                            <connections>
+                                                <outlet property="delegate" destination="i1G-h8-feT" id="Cco-QY-u2U"/>
+                                            </connections>
+                                        </textView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="r2d-WE-kFR" firstAttribute="height" secondItem="3MB-g6-nYa" secondAttribute="height" id="3Hv-Mv-0gR"/>
+                                        <constraint firstItem="r2d-WE-kFR" firstAttribute="centerY" secondItem="3MB-g6-nYa" secondAttribute="centerY" id="68G-GP-jg0"/>
+                                        <constraint firstItem="r2d-WE-kFR" firstAttribute="leading" secondItem="3MB-g6-nYa" secondAttribute="leading" constant="10" id="m2y-Ve-6TL"/>
+                                        <constraint firstItem="r2d-WE-kFR" firstAttribute="centerX" secondItem="3MB-g6-nYa" secondAttribute="centerX" id="upd-eR-vlu"/>
+                                        <constraint firstAttribute="trailing" secondItem="r2d-WE-kFR" secondAttribute="trailing" constant="8" id="y4m-D1-BSd"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="upd-eR-vlu"/>
+                                        </mask>
+                                    </variation>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="inputField" destination="r2d-WE-kFR" id="bgM-P1-rj3"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="addCell" rowHeight="60" id="eGG-DJ-MIO">
+                                <rect key="frame" x="0.0" y="514" width="375" height="60"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eGG-DJ-MIO" id="qEU-0e-7nr">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="59"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XpT-G3-loc" customClass="RecipeOverviewButton" customModule="YummlyProject" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
+                                            <color key="backgroundColor" red="0.22522737700000001" green="0.22722975479999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                            <state key="normal" title="Add">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="addRecipe" destination="qET-Cv-iXf" eventType="touchUpInside" id="1XT-pV-c0d"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="XpT-G3-loc" firstAttribute="centerY" secondItem="qEU-0e-7nr" secondAttribute="centerY" id="BDG-DI-4Zv"/>
+                                        <constraint firstItem="XpT-G3-loc" firstAttribute="width" secondItem="qEU-0e-7nr" secondAttribute="width" id="tBn-rA-kSC"/>
+                                        <constraint firstItem="XpT-G3-loc" firstAttribute="centerX" secondItem="qEU-0e-7nr" secondAttribute="centerX" id="tKb-OT-azC"/>
+                                        <constraint firstItem="XpT-G3-loc" firstAttribute="height" secondItem="qEU-0e-7nr" secondAttribute="height" id="wjm-d8-V0e"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="listItem" id="QBx-XH-OGW" customClass="RecipeListItem" customModule="YummlyProject" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="574" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QBx-XH-OGW" id="rtJ-67-RRR">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="O6G-HN-3bs">
+                                            <rect key="frame" x="14" y="0.0" width="361" height="43.5"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GF2-St-PYO">
+                                                    <rect key="frame" x="0.0" y="0.0" width="41.5" height="43.5"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3it-hX-1sC" customClass="RecipeOverviewBackButton" customModule="YummlyProject" customModuleProvider="target">
+                                                    <rect key="frame" x="317" y="0.0" width="44" height="43.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="44" id="3U1-f0-6Yi"/>
+                                                        <constraint firstAttribute="width" constant="44" id="zHA-2u-4ql"/>
+                                                    </constraints>
+                                                    <connections>
+                                                        <action selector="DeleteHandle" destination="QBx-XH-OGW" eventType="touchUpInside" id="C3L-P3-lvs"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="O6G-HN-3bs" firstAttribute="height" secondItem="rtJ-67-RRR" secondAttribute="height" id="1uk-XB-qL9"/>
+                                        <constraint firstItem="O6G-HN-3bs" firstAttribute="centerY" secondItem="rtJ-67-RRR" secondAttribute="centerY" id="DPi-ry-ea4"/>
+                                        <constraint firstItem="O6G-HN-3bs" firstAttribute="leading" secondItem="rtJ-67-RRR" secondAttribute="leading" constant="14" id="bqR-xs-UeU"/>
+                                        <constraint firstAttribute="trailing" secondItem="O6G-HN-3bs" secondAttribute="trailing" id="xes-dq-qDD"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="label" destination="GF2-St-PYO" id="GG7-vs-Tu7"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="qET-Cv-iXf" id="n63-xN-iy2"/>
+                            <outlet property="delegate" destination="qET-Cv-iXf" id="wuX-cd-CKA"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <segue destination="EoR-3A-Vdl" kind="unwind" identifier="unwindFromAdd" unwindAction="unwindFromAddWithSegue:" id="8m4-W9-McJ"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yGd-Ej-RG4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="EoR-3A-Vdl" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2580" y="-569"/>
+        </scene>
+        <!--Recently added-->
+        <scene sceneID="GP5-xQ-82U">
+            <objects>
+                <viewController id="RqO-bn-8dM" customClass="RecipesViewController" customModule="YummlyProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="OFV-15-3BZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="zHo-d1-RgG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QLB-hQ-4o4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fpa-BY-J1d" customClass="SearchTextField" customModule="SearchTextField">
+                                <rect key="frame" x="16" y="72" width="343" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="ABV-7R-eT9"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" prefetchingEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8mK-x8-8by">
+                                <rect key="frame" x="0.0" y="130" width="375" height="537"/>
+                                <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="10" id="ZFN-yh-H84">
+                                    <size key="itemSize" width="375" height="229"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="recipeCell" id="j6x-G1-ElT" customClass="RecipeCell" customModule="YummlyProject" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="229"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="229"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yyq-JJ-lk6">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="229"/>
+                                                </imageView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="01x-ty-qBE">
+                                                    <rect key="frame" x="28" y="153.5" width="140.5" height="47.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xMI-Wk-BZd">
+                                                            <rect key="frame" x="0.0" y="0.0" width="140.5" height="33"/>
+                                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="24"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <nil key="highlightedColor"/>
+                                                            <color key="shadowColor" red="0.13333333333333333" green="0.13333333333333333" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <size key="shadowOffset" width="1" height="0.0"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe source" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X7p-QE-jyD">
+                                                            <rect key="frame" x="0.0" y="33" width="140.5" height="14.5"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <nil key="highlightedColor"/>
+                                                            <color key="shadowColor" red="0.13333333333333333" green="0.13333333333333333" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <size key="shadowOffset" width="1" height="0.0"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstAttribute="bottomMargin" secondItem="01x-ty-qBE" secondAttribute="bottom" constant="20" id="DUL-Wr-Dow"/>
+                                            <constraint firstItem="01x-ty-qBE" firstAttribute="leading" secondItem="j6x-G1-ElT" secondAttribute="leadingMargin" constant="20" id="EbT-i2-yjQ"/>
+                                            <constraint firstItem="yyq-JJ-lk6" firstAttribute="width" secondItem="j6x-G1-ElT" secondAttribute="width" id="HMp-Lx-b3f"/>
+                                            <constraint firstItem="yyq-JJ-lk6" firstAttribute="height" secondItem="j6x-G1-ElT" secondAttribute="height" id="Tyb-kj-cKo"/>
+                                            <constraint firstItem="yyq-JJ-lk6" firstAttribute="centerX" secondItem="j6x-G1-ElT" secondAttribute="centerX" id="Vyi-7k-fnP"/>
+                                            <constraint firstItem="yyq-JJ-lk6" firstAttribute="centerY" secondItem="j6x-G1-ElT" secondAttribute="centerY" id="eHp-33-oSb"/>
+                                        </constraints>
+                                        <size key="customSize" width="375" height="229"/>
+                                        <connections>
+                                            <outlet property="recipeImage" destination="yyq-JJ-lk6" id="piT-7k-OZ8"/>
+                                            <outlet property="recipeName" destination="xMI-Wk-BZd" id="zy4-NG-ArC"/>
+                                            <outlet property="recipeSource" destination="X7p-QE-jyD" id="K5m-YG-uJw"/>
+                                            <segue destination="pyE-6Z-jY0" kind="show" identifier="detailRecipe" id="uff-QS-JPM"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="RqO-bn-8dM" id="L1A-6D-LVf"/>
+                                    <outlet property="delegate" destination="RqO-bn-8dM" id="9go-xs-Q0I"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="fpa-BY-J1d" firstAttribute="leading" secondItem="QLB-hQ-4o4" secondAttribute="leadingMargin" id="3pZ-J1-Ccn"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="fpa-BY-J1d" secondAttribute="trailing" id="MHH-7w-RZF"/>
+                            <constraint firstItem="8mK-x8-8by" firstAttribute="width" secondItem="QLB-hQ-4o4" secondAttribute="width" id="Nys-CF-qC0"/>
+                            <constraint firstItem="8mK-x8-8by" firstAttribute="centerX" secondItem="QLB-hQ-4o4" secondAttribute="centerX" id="gmj-jx-kiW"/>
+                            <constraint firstItem="zHo-d1-RgG" firstAttribute="top" secondItem="8mK-x8-8by" secondAttribute="bottom" id="oos-3A-Hyj"/>
+                            <constraint firstItem="fpa-BY-J1d" firstAttribute="top" secondItem="OFV-15-3BZ" secondAttribute="bottom" constant="8" id="tGy-LQ-EgK"/>
+                            <constraint firstItem="8mK-x8-8by" firstAttribute="top" secondItem="fpa-BY-J1d" secondAttribute="bottom" constant="8" id="urg-8T-836"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Recently added" id="1af-7Z-ZCy">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="add" id="lrh-Zk-W6V">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <segue destination="qET-Cv-iXf" kind="show" identifier="addRecipe" id="bdB-A6-z05"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="collectionView" destination="8mK-x8-8by" id="5R0-bs-Gvh"/>
+                        <outlet property="searchBar" destination="fpa-BY-J1d" id="YWM-3p-Ntq"/>
+                        <segue destination="pyE-6Z-jY0" kind="show" identifier="detailRecipeFromSelector" id="B7w-zl-gET"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hsd-oR-PgH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="kVB-3B-WeB">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Something went wrong" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V0o-Zi-vxw">
+                            <rect key="frame" x="32" y="54" width="177" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="V0o-Zi-vxw" firstAttribute="centerY" secondItem="kVB-3B-WeB" secondAttribute="centerY" id="dvt-WC-QYN"/>
+                        <constraint firstItem="V0o-Zi-vxw" firstAttribute="centerX" secondItem="kVB-3B-WeB" secondAttribute="centerX" id="oFu-3x-pNO"/>
+                    </constraints>
+                </view>
+            </objects>
+            <point key="canvasLocation" x="1789.5999999999999" y="136.28185907046478"/>
+        </scene>
+        <!--Recipe Overview Controller-->
+        <scene sceneID="q9s-kp-B3M">
+            <objects>
+                <viewController id="pyE-6Z-jY0" customClass="RecipeOverviewController" customModule="YummlyProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="GQH-0V-SHo"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ju8-sR-P9H"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dgq-FU-7H5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JDF-ba-VER">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="o4S-97-aIa">
+                                <rect key="frame" x="20" y="372.5" width="335" height="204.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pmG-TZ-SL3">
+                                        <rect key="frame" x="0.0" y="0.0" width="62" height="45"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="32"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <color key="shadowColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y8C-9W-K2A">
+                                        <rect key="frame" x="0.0" y="61" width="330" height="143.5"/>
+                                        <accessibility key="accessibilityConfiguration">
+                                            <accessibilityTraits key="traits" none="YES"/>
+                                        </accessibility>
+                                        <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tincidunt nulla at orci fermentum, quis convallis massa commodo. Sed ac malesuada tellus, at mattis nisl. Vivamus sit amet turpis faucibus, posuere metus sit amet, sollicitudin enim. Mauris dui libero, pharetra et massa eget, scelerisque lobortis orci. Nam at suscipit lacus. Etiam ornare quam vitae scelerisque imperdiet. Morbi et diam mattis, hendrerit ex eget, sagittis lectus.</string>
+                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <color key="shadowColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YSw-Jb-Ubt" customClass="RecipeOverviewButton" customModule="YummlyProject" customModuleProvider="target">
+                                <rect key="frame" x="16" y="601" width="343" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="CaG-kg-9p7"/>
+                                </constraints>
+                                <state key="normal" title="Make it">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="makeRecipe" destination="pyE-6Z-jY0" eventType="touchUpInside" id="acK-aK-XDm"/>
+                                    <segue destination="xiF-VF-jda" kind="show" identifier="recipeGuide" id="fhS-dN-2wO"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IvZ-Gf-Xxg" customClass="RecipeOverviewBackButton" customModule="YummlyProject" customModuleProvider="target">
+                                <rect key="frame" x="309" y="72" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="4dZ-eb-KKb"/>
+                                    <constraint firstAttribute="width" constant="50" id="H8d-QO-GsN"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="back" destination="pyE-6Z-jY0" eventType="touchUpInside" id="eCB-Uw-Snk"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.13333333333333333" green="0.13333333333333333" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="o4S-97-aIa" firstAttribute="leading" secondItem="dgq-FU-7H5" secondAttribute="leading" constant="20" symbolic="YES" id="3AY-XB-1Qh"/>
+                            <constraint firstAttribute="trailing" secondItem="o4S-97-aIa" secondAttribute="trailing" constant="20" symbolic="YES" id="6Y7-LU-ztq"/>
+                            <constraint firstItem="YSw-Jb-Ubt" firstAttribute="leading" secondItem="dgq-FU-7H5" secondAttribute="leadingMargin" id="6Yw-cj-JAc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="IvZ-Gf-Xxg" secondAttribute="trailing" id="Eih-47-7mK"/>
+                            <constraint firstItem="YSw-Jb-Ubt" firstAttribute="top" secondItem="o4S-97-aIa" secondAttribute="bottom" constant="24" id="Mv3-hw-9KR"/>
+                            <constraint firstItem="Ju8-sR-P9H" firstAttribute="top" secondItem="YSw-Jb-Ubt" secondAttribute="bottom" constant="16" id="XML-zg-Tkd"/>
+                            <constraint firstItem="JDF-ba-VER" firstAttribute="height" secondItem="dgq-FU-7H5" secondAttribute="height" id="Y2n-zO-q7H"/>
+                            <constraint firstItem="JDF-ba-VER" firstAttribute="centerX" secondItem="dgq-FU-7H5" secondAttribute="centerX" id="bqT-xP-jsH"/>
+                            <constraint firstItem="JDF-ba-VER" firstAttribute="width" secondItem="dgq-FU-7H5" secondAttribute="width" id="l9m-6e-lsR"/>
+                            <constraint firstItem="IvZ-Gf-Xxg" firstAttribute="top" secondItem="GQH-0V-SHo" secondAttribute="bottom" constant="8" id="mbR-Jc-VDp"/>
+                            <constraint firstItem="JDF-ba-VER" firstAttribute="centerY" secondItem="dgq-FU-7H5" secondAttribute="centerY" id="nAh-Zf-nCQ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="YSw-Jb-Ubt" secondAttribute="trailing" id="oUY-b8-lME"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="image" destination="JDF-ba-VER" id="Kjq-cB-re5"/>
+                        <outlet property="recipeDescription" destination="y8C-9W-K2A" id="COj-Dq-3yN"/>
+                        <outlet property="recipeTitle" destination="pmG-TZ-SL3" id="2Hj-ZM-5fz"/>
+                        <segue destination="Gcg-dw-VgI" kind="unwind" identifier="unwindToRecipes" unwindAction="unwindToRecipesWithSegue:" id="OQ0-Lf-fQh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xaE-Z0-ix9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Gcg-dw-VgI" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2580" y="136.28185907046478"/>
+        </scene>
+        <!--Recipe Guide Controller-->
+        <scene sceneID="pQa-NK-Wzo">
+            <objects>
+                <tableViewController id="xiF-VF-jda" customClass="RecipeGuideController" customModule="YummlyProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="9MY-SX-V3P">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="separatorColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="sectionIndexBackgroundColor" red="0.13333333333333333" green="0.13333333333333333" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="imageCell" rowHeight="250" id="vWB-LH-pVK" customClass="RecipeTableViewImageCell" customModule="YummlyProject" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="250"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vWB-LH-pVK" id="Zm1-Kg-0RC">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="250"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RXs-1l-w5f">
+                                            <rect key="frame" x="-0.5" y="0.0" width="375" height="250"/>
+                                        </imageView>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="89z-Qt-Hab" customClass="RecipeOverviewBackButton" customModule="YummlyProject" customModuleProvider="target">
+                                            <rect key="frame" x="325" y="0.0" width="50" height="50"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="50" id="5kY-p5-EAL"/>
+                                                <constraint firstAttribute="width" constant="50" id="twC-g9-dm4"/>
+                                            </constraints>
+                                            <connections>
+                                                <action selector="close" destination="xiF-VF-jda" eventType="touchUpInside" id="WWD-aD-VCO"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="89z-Qt-Hab" firstAttribute="top" secondItem="Zm1-Kg-0RC" secondAttribute="top" id="5Bf-Mh-YJH"/>
+                                        <constraint firstItem="RXs-1l-w5f" firstAttribute="centerX" secondItem="Zm1-Kg-0RC" secondAttribute="centerX" id="Bws-Wj-mUh"/>
+                                        <constraint firstItem="RXs-1l-w5f" firstAttribute="centerY" secondItem="Zm1-Kg-0RC" secondAttribute="centerY" id="KJm-z6-1rg"/>
+                                        <constraint firstItem="RXs-1l-w5f" firstAttribute="width" secondItem="Zm1-Kg-0RC" secondAttribute="width" id="MzF-lK-OoO"/>
+                                        <constraint firstAttribute="trailing" secondItem="89z-Qt-Hab" secondAttribute="trailing" id="qYs-mO-97W"/>
+                                        <constraint firstItem="RXs-1l-w5f" firstAttribute="height" secondItem="Zm1-Kg-0RC" secondAttribute="height" id="whY-KI-Z7D"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="recipeImage" destination="RXs-1l-w5f" id="aXM-Xq-qba"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="header" textLabel="eRA-8C-Zir" rowHeight="60" style="IBUITableViewCellStyleDefault" id="ZYf-zi-NeV">
+                                <rect key="frame" x="0.0" y="278" width="375" height="60"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZYf-zi-NeV" id="fDt-TU-e41">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eRA-8C-Zir">
+                                            <rect key="frame" x="15" y="0.0" width="345" height="60"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="24"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.13333333333333333" green="0.13333333333333333" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="cHD-Pz-I0n" rowHeight="36" style="IBUITableViewCellStyleDefault" id="Nsq-ev-eTl">
+                                <rect key="frame" x="0.0" y="338" width="375" height="36"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Nsq-ev-eTl" id="fgB-f3-DdV">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="36"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cHD-Pz-I0n">
+                                            <rect key="frame" x="15" y="0.0" width="345" height="36"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.95294117649999999" green="0.96078431369999995" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="xiF-VF-jda" id="TR0-ST-qOJ"/>
+                            <outlet property="delegate" destination="xiF-VF-jda" id="MB2-7r-M5j"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="loadingScreen" destination="9wB-Jx-Ey1" id="uPw-UA-V9s"/>
+                        <segue destination="GKa-OD-rXH" kind="unwind" identifier="unwindToRecipes" unwindAction="unwindToRecipesWithSegue:" id="Hsi-UJ-l55"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S68-Cb-uuT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="9wB-Jx-Ey1">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="llf-d5-8rt">
+                            <rect key="frame" x="90" y="54" width="61" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="llf-d5-8rt" firstAttribute="centerY" secondItem="9wB-Jx-Ey1" secondAttribute="centerY" id="5aG-Z3-pqy"/>
+                        <constraint firstItem="llf-d5-8rt" firstAttribute="centerX" secondItem="9wB-Jx-Ey1" secondAttribute="centerX" id="BYO-fP-MC1"/>
+                    </constraints>
+                </view>
+                <exit id="GKa-OD-rXH" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="3460" y="140"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="B7w-zl-gET"/>
+    </inferredMetricsTieBreakers>
 </document>

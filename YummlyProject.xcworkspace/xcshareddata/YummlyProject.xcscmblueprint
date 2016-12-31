@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "C98EEA233122AF7E5CC32D7BFE67DBDE87459DA9",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "C98EEA233122AF7E5CC32D7BFE67DBDE87459DA9" : 9223372036854775807,
+    "890C50AD3413B45DC85D158D3592C5EED609A26A" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "6A3C8321-B5C8-44D1-A7B3-93BC0AC7AC16",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "C98EEA233122AF7E5CC32D7BFE67DBDE87459DA9" : "YummlyProject\/",
+    "890C50AD3413B45DC85D158D3592C5EED609A26A" : ".."
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "YummlyProject",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "YummlyProject.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/gothinkster\/angularjs-realworld-example-app.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "890C50AD3413B45DC85D158D3592C5EED609A26A"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/PjGeeroms\/IOSRecipeDB",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "C98EEA233122AF7E5CC32D7BFE67DBDE87459DA9"
+    }
+  ]
+}

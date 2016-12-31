@@ -28,7 +28,6 @@ class RecipesViewController: UIViewController {
     
     fileprivate var recipes: [Recipe] = []
     private var currentTask: DataRequest?
-    private var searchTask: DataRequest?
     private var selectedIndex: Int?
     
     private let headers: HTTPHeaders = [
@@ -80,7 +79,8 @@ class RecipesViewController: UIViewController {
                     // Show the loading indicator
                     self.searchBar.showLoadingIndicator()
                     
-                    self.searchTask = Alamofire.request("\(Service.shared.baseApi)/recipes/filter/\(criteria)", headers: self.headers).responseCollection { (response: DataResponse<[Recipe]>) in
+                    self.currentTask?.cancel()
+                    self.currentTask = Alamofire.request("\(Service.shared.baseApi)/recipes/filter/\(criteria)", headers: self.headers).responseCollection { (response: DataResponse<[Recipe]>) in
                         switch response.result {
                         case .success(let recipes):
                             self.recipes = recipes
@@ -121,7 +121,8 @@ class RecipesViewController: UIViewController {
         }
         
         // Load recipes
-        currentTask = Service.shared.sessionManager.request("\(Service.shared.baseApi)/recipes", headers: headers).responseCollection { (response: DataResponse<[Recipe]>) in
+        currentTask?.cancel()
+        currentTask = Alamofire.request("\(Service.shared.baseApi)/recipes", headers: headers).responseCollection { (response: DataResponse<[Recipe]>) in
             switch response.result {
                 case .success(let recipes):
                     self.recipes = recipes
@@ -158,7 +159,7 @@ class RecipesViewController: UIViewController {
     
     func refreshTableView() {
         currentTask?.cancel()
-        currentTask = Service.shared.sessionManager.request("\(Service.shared.baseApi)/recipes", headers: headers).responseCollection { (response: DataResponse<[Recipe]>) in
+        currentTask = Alamofire.request("\(Service.shared.baseApi)/recipes", headers: headers).responseCollection { (response: DataResponse<[Recipe]>) in
             switch response.result {
             case .success(let recipes):
                 self.recipes = recipes

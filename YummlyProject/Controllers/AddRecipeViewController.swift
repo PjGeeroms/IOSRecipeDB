@@ -21,12 +21,13 @@ class AddRecipeViewController: UITableViewController {
     var recipeDescription: String?
     var ingredients: [String] = []
     var instructions: [String] = []
+    var errors: [String] = []
     
     var recipeImageView: UIImageView?
     
     override func viewDidLoad() {
         
-        // Testing data
+        //Testing data
         recipeName = "Recept naam"
         imageUrl = "http://images4.fanpop.com/image/photos/23400000/Cakes-delicious-recipes-23444509-1024-768.jpg"
         recipeDescription = "Recept description"
@@ -48,40 +49,91 @@ class AddRecipeViewController: UITableViewController {
     
     @IBAction func addRecipe() {
         
-//        print("Name: \(recipeName), imageUrl: \(imageUrl), Description: \(recipeDescription), Ingredients: \(ingredients), Instructions: \(instructions)")
-//        print("Token: \(Service.shared.user.token)")
+        // Clear previous errors
+        self.errors = []
+        var valid = true
         
-        let parameters: Parameters = [
-            "recipe": [
-                "title" : recipeName!,
-                "body" : recipeDescription!,
-                "image" : imageUrl!,
-                "portions" : "2",
-                "instructions" : instructions,
-                "ingredients" : ingredients
-            ]
-        ]
+        // Make sure Name & Description are initialized
+        if self.recipeName == nil {
+            self.recipeName = ""
+        }
         
-        let headers: HTTPHeaders = [
-            "Accept": "application/json",
-            "Content-Type" : "application/json",
-            "Authorization" : "Token \(Service.shared.user.token!)"
-        ]
+        if self.recipeDescription == nil {
+            self.recipeDescription = ""
+        }
         
-        let url = "http://recipedb.pw/api/recipes/"
-        Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON(completionHandler: { response in
+        // Input check
+        if (self.recipeName!.characters.count) < 3 {
+            self.errors.append("The recipe name should contain at least 3 characters")
+            valid = false
+        }
+        if (self.recipeDescription!.characters.count) < 5 {
+            self.errors.append("The description should contain at least 5 characters")
+            valid = false
+        }
+        if self.ingredients.count == 0 {
+            self.errors.append("At least one ingredient is required")
+            valid = false
+        }
+        if self.instructions.count == 0 {
+            self.errors.append("At least one instruction is required")
+            valid = false
+        }
+        
+        // Input check valid?
+        if valid {
             
-            let data = JSON(response.result.value!)
-            let errors = data.dictionaryValue["errors"] != nil
-            print(data)
-            if errors {
-                print("ERROR")
-                // Error handling
-            } else {
-                print("SUCCESS")
-                self.performSegue(withIdentifier: "unwindFromAdd", sender: self)
-            }
-        })
+            // Set parameters
+            let parameters: Parameters = [
+                "recipe": [
+                    "title" : recipeName ?? "",
+                    "body" : recipeDescription ?? "",
+                    "image" : imageUrl  ?? "",
+                    "portions" : "2",
+                    "instructions" : instructions,
+                    "ingredients" : ingredients
+                ]
+            ]
+            
+            // Set the headers
+            let headers: HTTPHeaders = [
+                "Accept": "application/json",
+                "Content-Type" : "application/json",
+                "Authorization" : "Token \(Service.shared.user.token!)"
+            ]
+            
+            // Send request
+            Alamofire.request("\(Service.shared.baseApi)/recipes", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON(completionHandler: { response in
+                
+                let data = JSON(response.result.value!)
+                let errors = data.dictionaryValue["errors"] != nil
+                
+                // Network errors
+                if errors {
+                    let error = data.dictionaryValue["errors"]!.dictionaryValue
+                    var key = error.first!.key
+                    if (key == "slug") {
+                        key = "name"
+                    }
+                    
+                    let message = "\(key) \(error.first!.value.stringValue)"
+                    self.errors.append(message)
+                }
+                
+                // No errors
+                if self.errors.count == 0 {
+                    self.performSegue(withIdentifier: "unwindFromAdd", sender: self)
+                    
+                } else {
+                    self.tableView.reloadData()
+                }
+                
+            })
+        } else {
+            // not valid, show errors
+            self.tableView.reloadData()
+        }
+        
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -89,13 +141,14 @@ class AddRecipeViewController: UITableViewController {
         // 1: Recipe name, Recipe image url, Recipe description
         // 2: Recipe ingredient, Ingredients list
         // 3: Recipe instruction, Instruction list
-        // 4: Post button
-        return 5
+        // 4: Errors
+        // 5: Post button
+        return 6
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch  section {
-        case 0, 4:
+        case 0, 5:
             return 1
         case 1:
             return 3
@@ -103,6 +156,8 @@ class AddRecipeViewController: UITableViewController {
             return ingredients.count + 1
         case 3:
             return instructions.count + 1
+        case 4:
+            return errors.count
         default:
             return 0
         }
@@ -146,7 +201,7 @@ class AddRecipeViewController: UITableViewController {
                 return cell
             } else {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "listItem", for: indexPath) as! RecipeListItem
-                cell.label.text = ingredients[indexPath.row - 1]
+                cell.label.text = ingredients[indexPath.row - 1].capitalizingFirstLetter()
                 cell.viewController = self
                 cell.restorationIdentifier = "ingredient"
                 return cell
@@ -161,12 +216,17 @@ class AddRecipeViewController: UITableViewController {
                 return cell
             } else {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "listItem", for: indexPath) as! RecipeListItem
-                cell.label.text = instructions[indexPath.row - 1]
+                cell.label.text = instructions[indexPath.row - 1].capitalizingFirstLetter()
                 cell.viewController = self
                 cell.restorationIdentifier = "instruction"
                 return cell
             }
         case 4:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+            cell.textLabel?.text = errors[indexPath.row]
+            cell.textLabel?.adjustsFontSizeToFitWidth = true
+            return cell
+        case 5:
             let cell = tableView.dequeueReusableCell(withIdentifier: "addCell", for: indexPath)
             return cell
         default:
@@ -183,7 +243,7 @@ class AddRecipeViewController: UITableViewController {
                 return 120
             }
             return 44
-        case 4:
+        case 5:
             return 60
         default:
             return 44
@@ -200,6 +260,8 @@ extension AddRecipeViewController: UITextFieldDelegate {
                 self.recipeImageView?.image = self.recipeImage
             } else {
                 print("failed")
+                self.errors.append("Unable to load the image")
+                self.tableView.reloadData()
             }
         })
     }

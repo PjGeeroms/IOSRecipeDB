@@ -23,6 +23,7 @@ class RecipesViewController: UIViewController {
     }
     
     @IBAction func unwindFromAdd(segue: UIStoryboardSegue) {
+        navigationController?.isNavigationBarHidden = false
         refreshTableView()
     }
     

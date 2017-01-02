@@ -13,9 +13,9 @@ You can login into the app using
     
 or use the webapp testaccount (credentials below)
 
-You can ofcourse always make your own account at: http://www.recipedb.pw
+You can of course always make your own account at: http://www.recipedb.pw
 
-The authentiction key needed to register is: pass
+The authentication key needed to register is: pass
 
 ### Webapp
 

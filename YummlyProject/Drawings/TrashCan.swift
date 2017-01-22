@@ -16,9 +16,9 @@
 import UIKit
 
 public class TrashCan : NSObject {
-
+    
     //// Drawing Methods
-
+    
     public dynamic class func drawCanvas1(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 416, height: 512), resizing: ResizingBehavior = .aspectFit) {
         //// General Declarations
         let context = UIGraphicsGetCurrentContext()!
@@ -28,31 +28,31 @@ public class TrashCan : NSObject {
         let resizedFrame: CGRect = resizing.apply(rect: CGRect(x: 0, y: 0, width: 416, height: 512), target: targetFrame)
         context.translateBy(x: resizedFrame.minX, y: resizedFrame.minY)
         context.scaleBy(x: resizedFrame.width / 416, y: resizedFrame.height / 512)
-
-
+        
+        
         //// Color Declarations
         let fillColor = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 1.000)
-
+        
         //// garbage.svg Group
         //// Group 2
         //// Rectangle Drawing
         let rectanglePath = UIBezierPath(roundedRect: CGRect(x: 199.32, y: 138.85, width: 17.35, height: 303.75), cornerRadius: 8.6)
         fillColor.setFill()
         rectanglePath.fill()
-
-
+        
+        
         //// Rectangle 2 Drawing
         let rectangle2Path = UIBezierPath(roundedRect: CGRect(x: 112.53, y: 138.85, width: 17.35, height: 303.75), cornerRadius: 8.6)
         fillColor.setFill()
         rectangle2Path.fill()
-
-
+        
+        
         //// Rectangle 3 Drawing
         let rectangle3Path = UIBezierPath(roundedRect: CGRect(x: 286.12, y: 138.85, width: 17.35, height: 303.75), cornerRadius: 8.6)
         fillColor.setFill()
         rectangle3Path.fill()
-
-
+        
+        
         //// Bezier Drawing
         let bezierPath = UIBezierPath()
         bezierPath.move(to: CGPoint(x: 407.59, y: 52.07))
@@ -93,90 +93,90 @@ public class TrashCan : NSObject {
         bezierPath.close()
         fillColor.setFill()
         bezierPath.fill()
-
-
-
-
+        
+        
+        
+        
         //// Group 3
-
-
+        
+        
         //// Group 4
-
-
+        
+        
         //// Group 5
-
-
+        
+        
         //// Group 6
-
-
+        
+        
         //// Group 7
-
-
+        
+        
         //// Group 8
-
-
+        
+        
         //// Group 9
-
-
+        
+        
         //// Group 10
-
-
+        
+        
         //// Group 11
-
-
+        
+        
         //// Group 12
-
-
+        
+        
         //// Group 13
-
-
+        
+        
         //// Group 14
-
-
+        
+        
         //// Group 15
-
-
+        
+        
         //// Group 16
-
-
+        
+        
         //// Group 17
         
         context.restoreGState()
-
+        
     }
-
-
-
-
+    
+    
+    
+    
     @objc public enum ResizingBehavior: Int {
         case aspectFit /// The content is proportionally resized to fit into the target rectangle.
         case aspectFill /// The content is proportionally resized to completely fill the target rectangle.
         case stretch /// The content is stretched to match the entire target rectangle.
         case center /// The content is centered in the target rectangle, but it is NOT resized.
-
+        
         public func apply(rect: CGRect, target: CGRect) -> CGRect {
             if rect == target || target == CGRect.zero {
                 return rect
             }
-
+            
             var scales = CGSize.zero
             scales.width = abs(target.width / rect.width)
             scales.height = abs(target.height / rect.height)
-
+            
             switch self {
-                case .aspectFit:
-                    scales.width = min(scales.width, scales.height)
-                    scales.height = scales.width
-                case .aspectFill:
-                    scales.width = max(scales.width, scales.height)
-                    scales.height = scales.width
-                case .stretch:
-                    break
-                case .center:
-                    scales.width = 1
-                    scales.height = 1
+            case .aspectFit:
+                scales.width = min(scales.width, scales.height)
+                scales.height = scales.width
+            case .aspectFill:
+                scales.width = max(scales.width, scales.height)
+                scales.height = scales.width
+            case .stretch:
+                break
+            case .center:
+                scales.width = 1
+                scales.height = 1
             }
-
+            
             var result = rect.standardized
             result.size.width *= scales.width
             result.size.height *= scales.height

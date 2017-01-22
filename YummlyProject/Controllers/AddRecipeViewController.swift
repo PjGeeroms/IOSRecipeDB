@@ -11,6 +11,8 @@ import UIKit
 import Alamofire
 import AlamofireImage
 import SwiftyJSON
+import ReactiveKit
+
 
 class AddRecipeViewController: UITableViewController {
     
@@ -28,11 +30,11 @@ class AddRecipeViewController: UITableViewController {
     override func viewDidLoad() {
         
         //Testing data
-        recipeName = "Recept naam"
-        imageUrl = "http://images4.fanpop.com/image/photos/23400000/Cakes-delicious-recipes-23444509-1024-768.jpg"
-        recipeDescription = "Recept description"
-        ingredients = ["Sla", "Tomaat", "Mayonnaise"]
-        instructions = ["Doe eerst dit", "Doe dan dat"]
+        //recipeName = "Recept naam"
+//        imageUrl = "http://graphics8.nytimes.com/images/2014/04/02/multimedia/falco-pizzadough/falco-pizzadough-superJumbo.jpg"
+//        recipeDescription = "This is a very tasty pizza dough recipe for making your very own pizza!"
+//        ingredients = ["200g Flour", "100ml Olive oil", "100ml water", "50g fresh yeast", "pinch of sugar", "1tsp salt"]
+//        instructions = ["Pour the flour on the surface and make a small hole in the middle of the flour", "Pour the olive oil in the hole", "add the sugar and the salt", "mix the olive oil, sugar and salt carefully.", "Add the yeast to the water and pour it in the hole", "Mix until you get your pizza dough"]
     }
         
     func deleteCell(cell: UITableViewCell) {
@@ -45,6 +47,37 @@ class AddRecipeViewController: UITableViewController {
             
             tableView.deleteRows(at: [index], with: .automatic)
         }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        //restore values here
+        print(UserDefaults.standard.string(forKey: "name")!)
+        print(UserDefaults.standard.string(forKey: "name")!)
+        print(UserDefaults.standard.string(forKey: "image")!)
+        print(UserDefaults.standard.string(forKey: "description")!)
+        print(UserDefaults.standard.array(forKey: "ingredients")!)
+        print(UserDefaults.standard.array(forKey: "instructions")!)
+        print(UserDefaults.standard.array(forKey: "errors")!)
+        
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        if let name = recipeName {
+            UserDefaults.standard.setValue(name, forKey: "name")
+        }
+        
+        if let image = imageUrl {
+            UserDefaults.standard.setValue(image, forKey: "image")
+        }
+        
+        if let description = recipeDescription {
+            UserDefaults.standard.setValue(description, forKey: "description")
+        }
+        
+        UserDefaults.standard.setValue(ingredients, forKey: "ingredients")
+        UserDefaults.standard.setValue(instructions, forKey: "instructions")
+        UserDefaults.standard.setValue(errors, forKey: "errors")
     }
     
     @IBAction func addRecipe() {
@@ -122,6 +155,22 @@ class AddRecipeViewController: UITableViewController {
                 
                 // No errors
                 if self.errors.count == 0 {
+                    if self.recipeName != nil {
+                        UserDefaults.standard.setValue("", forKey: "name")
+                    }
+                    
+                    if self.imageUrl != nil {
+                        UserDefaults.standard.setValue("", forKey: "image")
+                    }
+                    
+                    if self.recipeDescription != nil {
+                        UserDefaults.standard.setValue("", forKey: "description")
+                    }
+                    
+                    UserDefaults.standard.setValue([String](), forKey: "ingredients")
+                    UserDefaults.standard.setValue([String](), forKey: "instructions")
+                    UserDefaults.standard.setValue([String](), forKey: "errors")
+                    
                     self.performSegue(withIdentifier: "unwindFromAdd", sender: self)
                     
                 } else {

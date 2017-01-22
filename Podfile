@@ -10,8 +10,7 @@ target 'YummlyProject' do
   pod 'Alamofire', '~> 4.2'
   pod 'AlamofireImage', '~> 3.2'
   pod 'AASquaresLoading', '~> 1.0'
-  pod 'JSONWebToken'
   pod 'SearchTextField', '~> 1.0'
-
+  pod 'ReactiveKit', '~> 3.3'
 
 end

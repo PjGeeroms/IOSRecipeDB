@@ -55,10 +55,25 @@ class RecipeGuideController: UITableViewController {
         switch indexPath.section {
         case 0:
             return 250
-        case 1...2:
+        case 1:
             if indexPath.row == 0 {
                 return 60
             } else {
+                return 36
+            }
+        case 2:
+            if indexPath.row == 0 {
+                return 60
+            } else {
+                if indexPath.section == 2 {
+                    if recipe.instructions[indexPath.row - 1].characters.count > 40 {
+                        return 50
+                    } else if recipe.instructions[indexPath.row - 1].characters.count > 80 {
+                        return 80
+                    } else if recipe.instructions[indexPath.row - 1].characters.count > 120 {
+                        return 110
+                    }
+                }
                 return 36
             }
         default:

@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '729B3BDA2535DD1171607CF5271A9A0A'
-               BlueprintName = 'AASquaresLoading'
+               BlueprintIdentifier = 'D27EFC27D54E3C40229EC958B4787577'
+               BlueprintName = 'ReactiveKit'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'AASquaresLoading.framework'>
+               BuildableName = 'ReactiveKit.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

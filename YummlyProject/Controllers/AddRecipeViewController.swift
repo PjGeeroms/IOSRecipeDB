@@ -12,6 +12,7 @@ import Alamofire
 import AlamofireImage
 import SwiftyJSON
 import ReactiveKit
+import Bond
 
 
 class AddRecipeViewController: UITableViewController {
@@ -24,7 +25,6 @@ class AddRecipeViewController: UITableViewController {
     var ingredients: [String] = []
     var instructions: [String] = []
     var errors: [String] = []
-    
     var recipeImageView: UIImageView?
     
     override func viewDidLoad() {
@@ -49,35 +49,22 @@ class AddRecipeViewController: UITableViewController {
         }
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        //restore values here
-        print(UserDefaults.standard.string(forKey: "name")!)
-        print(UserDefaults.standard.string(forKey: "name")!)
-        print(UserDefaults.standard.string(forKey: "image")!)
-        print(UserDefaults.standard.string(forKey: "description")!)
-        print(UserDefaults.standard.array(forKey: "ingredients")!)
-        print(UserDefaults.standard.array(forKey: "instructions")!)
-        print(UserDefaults.standard.array(forKey: "errors")!)
-        
-        
-    }
-    
     override func viewWillDisappear(_ animated: Bool) {
-        if let name = recipeName {
-            UserDefaults.standard.setValue(name, forKey: "name")
-        }
-        
-        if let image = imageUrl {
-            UserDefaults.standard.setValue(image, forKey: "image")
-        }
-        
-        if let description = recipeDescription {
-            UserDefaults.standard.setValue(description, forKey: "description")
-        }
-        
-        UserDefaults.standard.setValue(ingredients, forKey: "ingredients")
-        UserDefaults.standard.setValue(instructions, forKey: "instructions")
-        UserDefaults.standard.setValue(errors, forKey: "errors")
+//        if let name = recipeName {
+//            UserDefaults.standard.setValue(name, forKey: "name")
+//        }
+//        
+//        if let image = imageUrl {
+//            UserDefaults.standard.setValue(image, forKey: "image")
+//        }
+//        
+//        if let description = recipeDescription {
+//            UserDefaults.standard.setValue(description, forKey: "description")
+//        }
+//        
+//        UserDefaults.standard.setValue(ingredients, forKey: "ingredients")
+//        UserDefaults.standard.setValue(instructions, forKey: "instructions")
+//        UserDefaults.standard.setValue(errors, forKey: "errors")
     }
     
     @IBAction func addRecipe() {
@@ -96,6 +83,7 @@ class AddRecipeViewController: UITableViewController {
         }
         
         // Input check
+
         if (self.recipeName!.characters.count) < 3 {
             self.errors.append("The recipe name should contain at least 3 characters")
             valid = false
@@ -155,21 +143,21 @@ class AddRecipeViewController: UITableViewController {
                 
                 // No errors
                 if self.errors.count == 0 {
-                    if self.recipeName != nil {
-                        UserDefaults.standard.setValue("", forKey: "name")
-                    }
-                    
-                    if self.imageUrl != nil {
-                        UserDefaults.standard.setValue("", forKey: "image")
-                    }
-                    
-                    if self.recipeDescription != nil {
-                        UserDefaults.standard.setValue("", forKey: "description")
-                    }
-                    
-                    UserDefaults.standard.setValue([String](), forKey: "ingredients")
-                    UserDefaults.standard.setValue([String](), forKey: "instructions")
-                    UserDefaults.standard.setValue([String](), forKey: "errors")
+//                    if self.recipeName != nil {
+//                        UserDefaults.standard.setValue("", forKey: "name")
+//                    }
+//                    
+//                    if self.imageUrl != nil {
+//                        UserDefaults.standard.setValue("", forKey: "image")
+//                    }
+//                    
+//                    if self.recipeDescription != nil {
+//                        UserDefaults.standard.setValue("", forKey: "description")
+//                    }
+//                    
+//                    UserDefaults.standard.setValue([String](), forKey: "ingredients")
+//                    UserDefaults.standard.setValue([String](), forKey: "instructions")
+//                    UserDefaults.standard.setValue([String](), forKey: "errors")
                     
                     self.performSegue(withIdentifier: "unwindFromAdd", sender: self)
                     
@@ -225,6 +213,7 @@ class AddRecipeViewController: UITableViewController {
             case 0:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "inputCell", for: indexPath) as! RecipeInputCell
                 cell.inputField.delegate = self
+                
                 return cell
             case 1:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "imageInputCell", for: indexPath) as! RecipeImageInputCell

@@ -14,7 +14,7 @@ class LaunchScreenController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         //Enable for production 
-        //sleep(2)
+        sleep(2)
         performSegue(withIdentifier: "loginScreen", sender: self)
     }
 }

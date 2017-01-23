@@ -12,5 +12,5 @@ target 'YummlyProject' do
   pod 'AASquaresLoading', '~> 1.0'
   pod 'SearchTextField', '~> 1.0'
   pod 'ReactiveKit', '~> 3.3'
-
+  pod 'Bond'
 end

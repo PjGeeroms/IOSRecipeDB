@@ -59,7 +59,7 @@ class RecipeGuideController: UITableViewController {
             if indexPath.row == 0 {
                 return 60
             } else {
-                return 36
+                return 50
             }
         case 2:
             if indexPath.row == 0 {
@@ -74,10 +74,10 @@ class RecipeGuideController: UITableViewController {
                         return 110
                     }
                 }
-                return 36
+                return 50
             }
         default:
-            return 36
+            return 50
         }
     }
     
@@ -94,7 +94,8 @@ class RecipeGuideController: UITableViewController {
                 return cell
             }
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-            cell.textLabel?.text = "• \(recipe.ingredients[indexPath.row - 1].capitalizingFirstLetter())"
+            cell.textLabel?.text = recipe.ingredients[indexPath.row - 1].capitalizingFirstLetter()
+            cell.contentMode = .top
             return cell
         case 2:
             if (indexPath.row == 0) {

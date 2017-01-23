@@ -8,7 +8,6 @@
 
 import Foundation
 import UIKit
-import JWT
 import Alamofire
 import SwiftyJSON
 
